@@ -9,7 +9,7 @@ build_image:
 
   script:
   - docker build -t programmieren-hiwis/checkstyle-ips:testing .
-  - docker push programmieren-hiwis/checkstyle-ips:testing
+  #- docker push programmieren-hiwis/checkstyle-ips:testing
 
 test_image:
   tags:
