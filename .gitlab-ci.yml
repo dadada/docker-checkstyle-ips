@@ -8,6 +8,5 @@ build_image:
   - docker
 
   script:
-  - docker build -t programmieren-hiwis/checkstyle-ips:testing .
-  - docker push programmieren-hiwis/checkstyle-ips:testing
-  - docker run programmieren-hiwis/checkstyle-ips:testing TestFile.java
+  - docker build -t checkstyle-ips:testing .
+  - docker run checkstyle-ips:testing TestFile.java
