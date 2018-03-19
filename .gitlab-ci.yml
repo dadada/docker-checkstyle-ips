@@ -3,14 +3,24 @@ image: docker:git
 services:
   - docker:dind
 
-before_script:
-  - docker info
-
 build_image:
   tags:
   - docker
 
   script:
   - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips .
+
+test_image:
+  tags:
+  - docker
+
+  script:
   - docker run ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips TestFile.java
-  #- docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
+
+deploy_image:
+  tags:
+  - docker
+
+  script:
+  - docker login ips1.ibr.cs.tu-bs.de:5005
+  - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips TestFile.java
