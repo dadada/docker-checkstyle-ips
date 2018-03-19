@@ -12,7 +12,7 @@ build_image:
   - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
 
 test:
-  image: localhost:5005/programmieren-hiwis/checkstyle-ips
+  image: ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
 
   tags:
   - stylechecker
