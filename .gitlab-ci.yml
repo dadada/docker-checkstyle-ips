@@ -4,5 +4,9 @@ services:
 
 build:
   script:
-  - docker build -t checkstyle-ips .
-  - docker push checkstyle-ips
+  - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips .
+  - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
+
+test:
+  script:
+    - Dummy Script
