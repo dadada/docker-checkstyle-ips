@@ -12,8 +12,5 @@ build_image:
 
   script:
   - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips .
-  #- docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
-
-test:
-  script:
   - docker run checkstyle-ips TestFile.java
+  #- docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
