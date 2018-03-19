@@ -3,6 +3,7 @@ services:
   - docker:dind
 
 build:
+  tags: docker
   script:
   - docker build -t checkstyle-ips .
   - docker push checkstyle-ips
