@@ -11,5 +11,4 @@ RUN curl -sLO https://sourceforge.net/projects/checkstyle/files/checkstyle/${CHE
 # https://docs.gitlab.com/runner/executors/docker.html#the-entrypoint
 ENTRYPOINT ["java","-jar","/checkstyle/checkstyle.jar","-c","/checkstyle/tubs_checks.xml"]
 
-# default option, path to check
 CMD ["-v"]
