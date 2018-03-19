@@ -18,4 +18,9 @@ test:
   - stylechecker
   
   script:
-  - java -jar /checkstyle/checkstyle.jar -c /checkstyle/tubs_checks.xml *.java
+  - java -jar /checkstyle/checkstyle.jar -c /checkstyle/tubs_checks.xml -o out .
+
+  artifacts:
+    paths:
+    - out
+    expire_in: 1 week
