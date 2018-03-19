@@ -8,7 +8,6 @@ build_image:
   - docker
 
   script:
-  - docker login ips1.ibr.cs.tu-bs.de:5005
   - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips:testing .
   - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips:testing
 
