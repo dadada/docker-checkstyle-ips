@@ -9,4 +9,11 @@ build_image:
 
   script:
   - docker build -t checkstyle-ips:testing .
-  - docker run checkstyle-ips:testing
+
+test:
+  tags:
+  - stylechecker
+
+  script:
+  - Dummy Script
+
