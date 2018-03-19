@@ -16,3 +16,6 @@ test:
 
   tags:
   - stylechecker
+  
+  script:
+  - echo Hello
