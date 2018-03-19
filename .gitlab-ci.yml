@@ -9,4 +9,4 @@ build_image:
 
   script:
   - docker build -t checkstyle-ips:testing .
-  - cat TestFile.java > docker run checkstyle-ips:testing
+  - cat TestFile.java | docker run checkstyle-ips:testing
