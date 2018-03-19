@@ -14,5 +14,5 @@ test:
   tags:
   - stylechecker
 
-#script:
-#- java -jar checkstyle.jar -c tubs_checks.xml TestFile.java
+  script:
+  - java -jar checkstyle.jar -c tubs_checks.xml TestFile.java
