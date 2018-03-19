@@ -18,5 +18,5 @@ test:
   - stylechecker
   
   script:
-  - ping -c 2 google.de
+  - ping google.de
   - java -jar /checkstyle/checkstyle.jar -c /checkstyle/tubs_checks.xml *.java
