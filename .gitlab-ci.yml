@@ -16,7 +16,3 @@ test:
 
   tags:
   - stylechecker
-
-  script:
-  - ls
-  - java -jar checkstyle.jar -c tubs_checks.xml TestFile.java
