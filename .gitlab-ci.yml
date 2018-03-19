@@ -8,19 +8,13 @@ build_image:
   - docker
 
   script:
-  - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips .
+  - docker login ips1.ibr.cs.tu-bs.de:5005
+  - docker build -t ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips:testing .
+  - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips:testing
 
 test_image:
   tags:
   - docker
 
   script:
-  - docker run ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips TestFile.java
-
-deploy_image:
-  tags:
-  - docker
-
-  script:
-  - docker login ips1.ibr.cs.tu-bs.de:5005
-  - docker push ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips TestFile.java
+  - docker run ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips:testing TestFile.java
