@@ -1,5 +1,7 @@
 FROM java:8-jdk
 
+WORKDIR /checkstyle
+
 ADD tubs_checks.xml .
 
 ENV CHECKSTYLE_VERSION=7.6.1
