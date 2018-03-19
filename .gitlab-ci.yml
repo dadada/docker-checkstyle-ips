@@ -1,16 +1,18 @@
-image: docker:git
+build_image:
+  image: docker:git
 
-services:
+  services:
   - docker:dind
 
-build_image:
   tags:
   - docker
 
   script:
-  - docker build -t checkstyle-ips:testing .
+  - docker build -t checkstyle-ips .
 
 test:
+  image: ips1.ibr.cs.tu-bs.de:5005/programmieren-hiwis/checkstyle-ips
+
   tags:
   - stylechecker
 
