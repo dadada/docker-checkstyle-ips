@@ -18,5 +18,4 @@ test:
   - stylechecker
   
   script:
-  - ping google.de
   - java -jar /checkstyle/checkstyle.jar -c /checkstyle/tubs_checks.xml *.java
