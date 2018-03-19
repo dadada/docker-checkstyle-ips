@@ -18,5 +18,5 @@ test:
   - stylechecker
 
   script:
-  - java -jar checkstyle.jar -c tubs_checks.xml TestFile.java
   - ls
+  - java -jar checkstyle.jar -c tubs_checks.xml TestFile.java
