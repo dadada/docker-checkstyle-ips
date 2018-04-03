@@ -14,7 +14,7 @@ build_image:
 
   script:
   - docker build -t checkstyle .
-  - docker run checkstyle
+  #- docker run checkstyle
   - docker tag checkstyle ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle .
   - docker push ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle
 
