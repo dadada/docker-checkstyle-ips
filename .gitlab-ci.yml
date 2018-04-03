@@ -1,6 +1,10 @@
 build_image:
   image: docker:latest
 
+  variables:
+    CONTAINER_IMAGE: registry.gitlab.com/$CI_PROJECT_PATH
+    DOCKER_DRIVER: overlay2
+
   services:
   - docker:dind
 
@@ -13,8 +17,10 @@ build_image:
   stage: build
 
   script:
-  - docker build -t ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest .
-  - docker push ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest
+    - docker pull $CONTAINER_IMAGE:latest || true
+    - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF --tag $CONTAINER_IMAGE:latest .
+    - docker push $CONTAINER_IMAGE:$CI_BUILD_REF
+    - docker push $CONTAINER_IMAGE:latest
 
 test:
   image: ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest
