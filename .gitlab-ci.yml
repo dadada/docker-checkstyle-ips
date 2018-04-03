@@ -1,5 +1,5 @@
 build_image:
-  image: docker:git
+  image: docker:latest
 
   services:
   - docker:dind
@@ -8,18 +8,16 @@ build_image:
   - docker
 
   before_script:
-  - docker info
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN ips1.ibr.cs.tu-bs.de:5005
 
   stage: build
 
   script:
-  - docker build -t checkstyle .
-  #- docker run checkstyle
-  - docker tag checkstyle ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle
-  - docker push ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle
+  - docker build -t ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest .
+  - docker push ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest
 
 test:
-  image: ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle
+  image: ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest
 
   tags:
   - stylechecker
