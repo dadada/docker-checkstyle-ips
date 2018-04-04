@@ -1,27 +1,3 @@
-build_image:
-  image: docker:latest
-
-  variables:
-    CONTAINER_IMAGE: ips1.ibr.cs.tu-bs.de:5005/$CI_PROJECT_PATH
-    DOCKER_DRIVER: overlay2
-
-  services:
-  - docker:dind
-
-  tags:
-  - docker
-
-  before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN ips1.ibr.cs.tu-bs.de:5005
-
-  stage: build
-
-  script:
-    - docker pull $CONTAINER_IMAGE:latest || true
-    - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF --tag $CONTAINER_IMAGE:latest .
-    - docker push $CONTAINER_IMAGE:$CI_BUILD_REF
-    - docker push $CONTAINER_IMAGE:latest
-
 test:
   image: ips1.ibr.cs.tu-bs.de:5005/abgabesystem/checkstyle:latest
 
