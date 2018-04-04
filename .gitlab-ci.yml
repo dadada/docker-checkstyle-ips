@@ -8,6 +8,9 @@ build_image:
   services:
   - docker:dind
 
+  tags:
+  - docker
+
   before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN ips1.ibr.cs.tu-bs.de:5005
 
