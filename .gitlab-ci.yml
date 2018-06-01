@@ -17,7 +17,7 @@ before_script:
 build:
   stage: build
   tags:
-    - docker
+    - docker-builder
 
   script:
     - docker build --pull -t $CONTAINER_TEST_TAG .
@@ -25,6 +25,9 @@ build:
 
 test1:
   stage: test
+  tags:
+    - docker-builder
+    
   script:
     - docker pull $CONTAINER_TEST_TAG
 
@@ -34,5 +37,9 @@ release-image:
     - docker pull $CONTAINER_TEST_TAG
     - docker tag $CONTAINER_TEST_TAG $CONTAINER_RELEASE_TAG
     - docker push $CONTAINER_RELEASE_TAG
+    
+  tags:
+    - docker-builder
+    
   only:
     - master
