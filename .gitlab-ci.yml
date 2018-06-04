@@ -25,9 +25,11 @@ build:
 
 test1:
   stage: test
+  tags:
+    - docker
+    
   script:
     - docker pull $CONTAINER_TEST_TAG
-    - docker run $CONTAINER_TEST_TAG
 
 release-image:
   stage: release
@@ -35,5 +37,9 @@ release-image:
     - docker pull $CONTAINER_TEST_TAG
     - docker tag $CONTAINER_TEST_TAG $CONTAINER_RELEASE_TAG
     - docker push $CONTAINER_RELEASE_TAG
+    
+  tags:
+    - docker
+    
   only:
     - master
