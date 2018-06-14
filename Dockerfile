@@ -4,7 +4,6 @@ WORKDIR /checkstyle
 
 ADD tubs_checks.xml .
 ADD checkstyle.sh .
-ADD TestFile.java .
 
 ENV VERSION=5.7
 
