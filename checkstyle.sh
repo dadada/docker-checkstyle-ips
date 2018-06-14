@@ -1,4 +1,4 @@
 #!/bin/sh
 
-find -name *.java
+find / -name *.java
 java -jar ./checkstyle.jar -c /checkstyle/tubs_checks.xml $(find -name '*.java')
