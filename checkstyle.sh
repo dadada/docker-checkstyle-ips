@@ -1,4 +1,3 @@
 #!/bin/sh
 
-find / -name *.java
-java -jar ./checkstyle.jar -c /checkstyle/tubs_checks.xml "$(find /builds/ -name '*.java')"
+find /builds/ -name '*.java' | xargs java -jar ./checkstyle.jar -c /checkstyle/tubs_checks.xml
